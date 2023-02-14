@@ -58,4 +58,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function city(){
+        return $this->belongsTo('App\Models\City');
+    }
+    public function contact_option(){
+        return $this->belongsTo('App\Models\Contact_option');
+    }
 }
