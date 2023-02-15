@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')
-                ->references('id')->on('regions');
+            $table->foreignId('region_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+        });
+
+        Schema::table('users', function(Blueprint $table){
+            $table->foreignId('city_id')->after('phone')->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
         });
     }
 

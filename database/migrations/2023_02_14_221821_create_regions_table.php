@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_options', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
-        });
-        Schema::table('users', function(Blueprint $table){
-            $table->foreignId('contact_option_id')->after('city_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_options');
+        Schema::dropIfExists('regions');
     }
 };
