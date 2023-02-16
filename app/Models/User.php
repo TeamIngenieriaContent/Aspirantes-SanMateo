@@ -68,4 +68,7 @@ class User extends Authenticatable
     public function contact_option(){
         return $this->belongsTo('App\Models\Contact_option');
     }
+    public function interaction(){
+        return $this->hasMany('App\Models\Interaction');
+    }
 }

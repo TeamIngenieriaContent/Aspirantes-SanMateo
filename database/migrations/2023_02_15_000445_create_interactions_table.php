@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('user_id')->nullable()->onDelete('set null');
+            $table->foreignId('academic_program_id')->nullable()->onDelete('set null');
+            $table->foreignId('interaction_type_id')->nullable()->onDelete('set null');
         });
     }
 
