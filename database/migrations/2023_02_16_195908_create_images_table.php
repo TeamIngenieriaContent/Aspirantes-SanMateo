@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('interactions', function (Blueprint $table) {
-            $table->id();
+        Schema::create('images', function (Blueprint $table) {
+            $table->string('url');
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type');
+            $table->primary(['imageable_id','imageable_type']);
             $table->timestamps();
-            $table->foreignId('user_id')->constrained()->nullable()->onDelete('cascade');
-            $table->foreignId('academic_program_id')->constrained()->nullable()->onDelete('cascade');
-            $table->foreignId('interaction_type_id')->constrained()->nullable()->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interactions');
+        Schema::dropIfExists('images');
     }
 };

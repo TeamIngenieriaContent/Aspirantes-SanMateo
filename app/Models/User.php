@@ -71,4 +71,12 @@ class User extends Authenticatable
     public function interaction(){
         return $this->hasMany('App\Models\Interaction');
     }
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    // relación uno a uno poliorfica
+    public function image(){
+        return $this->morphOne('App\Models\Image','imageable');
+    }
 }
