@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('interactions', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('role_id')->constrained()->nullable()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->nullable()->onDelete('cascade');
-            $table->foreignId('academic_program_id')->constrained()->nullable()->onDelete('set ull');
-            $table->foreignId('interaction_type_id')->constrained()->nullable()->onDelete('set null');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interactions');
+        Schema::dropIfExists('role_user');
     }
 };
