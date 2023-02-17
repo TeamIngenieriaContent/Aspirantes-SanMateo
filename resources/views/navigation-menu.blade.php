@@ -6,14 +6,25 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img class="block h-9 w-auto" src="{{Storage::url('img/logo_san-mateo.png')}}">
+                        {{-- <x-jet-application-mark class="block h-9 w-auto" /> --}}
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('academic_programs') }}" :active="request()->routeIs('academic_programs')">
+                        {{ __('Academic programs') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('user_experience') }}" :active="request()->routeIs('user_experience')">
+                        {{ __('User Experience') }}
                     </x-jet-nav-link>
                 </div>
             </div>
