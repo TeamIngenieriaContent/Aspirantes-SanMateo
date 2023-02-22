@@ -5,7 +5,7 @@
 {{--                 <button x-on:click="open = true" class="w-full aspect-video">
                     <img src="{{Storage::url('img/Mateverso.jpg')}}" class="w-full h-full">
                 </button> --}}
-                <iframe loading="lazy" class="w-full aspect-video" src="https://moodlevirtual.sanmateovirtual.edu.co/ModulosVirtuales/Prueba/Mateverso2/index.html"></iframe>
+                <iframe loading="lazy" class="w-full aspect-video" src="https://moodlevirtual.sanmateovirtual.edu.co/ModulosVirtuales/Prueba/Mateverso3/index.html"></iframe>
             </div>
         </div>
     </div>
