@@ -28,12 +28,14 @@
 
                 <div class="mt-4">
                     <x-jet-label for="city" value="{{ __('City') }}" />
-                    <x-jet-input id="city" class="block mt-1 w-full" type="number" name="city" required autocomplete="city" />
+                    <livewire:city-form/>
+                    {{-- <x-jet-input id="city" class="block mt-1 w-full" type="number" name="city" required autocomplete="city" /> --}}
                 </div>
 
                 <div class="mt-4">
                     <x-jet-label for="contact_option" value="{{ __('Contact option') }}" />
-                    <x-jet-input id="contact_option" class="block mt-1 w-full" type="number" name="contact_option" required autocomplete="contact_option" />
+                    <livewire:contact-form/>
+                    {{-- <x-jet-input id="contact_option" class="block mt-1 w-full" type="number" name="contact_option" required autocomplete="contact_option" /> --}}
                 </div>
 
                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

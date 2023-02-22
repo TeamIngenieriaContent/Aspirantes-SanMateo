@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('courseables', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('courseable_id');
+            $table->string('courseable_type');
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

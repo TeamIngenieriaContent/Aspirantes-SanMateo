@@ -14,6 +14,10 @@ class Course extends Model
         return $this->hasMany('App\Models\Courseable');
     }
 
+    public function program(){
+        return $this->belongsTo('App\Models\Academic_program');
+    }
+
     // relación uno a uno poliorfica
     public function image(){
         return $this->morphOne('App\Models\Image','imageable');

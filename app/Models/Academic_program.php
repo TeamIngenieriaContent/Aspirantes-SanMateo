@@ -23,4 +23,8 @@ class Academic_program extends Model
     public function courseable(){
         return $this->morphMany('App\Models\Courseable','courseable');
     }
+    public function course(){
+        return $this->hasMany('App\Models\Course');
+    }
+
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('url_resource');
+            $table->foreignId('academic_program_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

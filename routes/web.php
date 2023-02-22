@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
         Route::get('/dashboard', function () { return view('dashboard');
         })->name('dashboard');
         Route::view('/home','home')->name('home');
-        Route::view('/academic_programs','academic_programs')->name('academic_programs');
+        Route::controller(ProgramController::class)->group(function(){
+            Route::get('/academic_programs','index')->name('program.index');
+            Route::get('/academic_programs/{program}','show')->name('program.show');
+        });
         Route::view('/user_experience','user_experience')->name('user_experience');
 });

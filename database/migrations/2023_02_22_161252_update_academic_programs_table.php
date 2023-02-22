@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('courseables', function (Blueprint $table){
-            $table->unsignedBigInteger('courseable_id')->after('id');
-            $table->string('courseable_type')->after('courseable_id');
-            $table->foreignId('course_id')->after('courseable_type')->constrained()->onDelete('cascade');
+        Schema::table('academic_programs', function (Blueprint $table) {
+           $table->integer('status')->after('url_landing')->nullable();
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-
+        //
     }
 };

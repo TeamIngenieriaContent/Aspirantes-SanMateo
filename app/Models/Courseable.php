@@ -12,11 +12,15 @@ class Courseable extends Model
         'course_id',
     ];
 
-    public function courseable(){
-        return $this->morphTo();
+    public function program_academic(){
+        return $this->morphedByMany('App\Models\Academic_program','courseable');
+    }
+    public function semester(){
+        return $this->morphedByMany('App\Models\Semester','courseable');
     }
 
     public function course(){
         return $this->belongsTo('App\Models\Course');
     }
+
 }
