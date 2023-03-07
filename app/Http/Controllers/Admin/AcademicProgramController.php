@@ -15,7 +15,8 @@ class AcademicProgramController extends Controller
      */
     public function index()
     {
-        return view('admin.programs.index');
+        $programs = Academic_program::all();
+        return view('admin.programs.index', compact('programs'));
     }
 
     /**
@@ -36,7 +37,13 @@ class AcademicProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:academic_programs',
+        ]);
+        $program = Academic_program::create($request->all());
+
+        return to_route('admin.programs.edit', $program)->with('info','El programa académico se ha creado con éxito');
     }
 
     /**
@@ -70,7 +77,13 @@ class AcademicProgramController extends Controller
      */
     public function update(Request $request, Academic_program $program)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'slug'=>"required|unique:academic_programs,slug,$program->id",
+        ]);
+
+        $program->update($request->all());
+        return to_route('admin.programs.edit', $program)->with('info','El programa académico se ha actualizado');
     }
 
     /**
@@ -81,6 +94,7 @@ class AcademicProgramController extends Controller
      */
     public function destroy(Academic_program $program)
     {
-        //
+        $program->delete();
+        return to_route('admin.programs.index')->with('info','El programa académico se elimino con éxito');
     }
 }
