@@ -26,7 +26,11 @@ class AcademicProgramController extends Controller
      */
     public function create()
     {
-        return view('admin.programs.create');
+        $status = [
+            '1' => 'Activo',
+            '0' => 'Inactivo',
+        ];
+        return view('admin.programs.create',compact('status'));
     }
 
     /**
@@ -40,6 +44,8 @@ class AcademicProgramController extends Controller
         $request->validate([
             'name'=>'required',
             'slug'=>'required|unique:academic_programs',
+            'url_landing' =>'required',
+            'status' => 'required'
         ]);
         $program = Academic_program::create($request->all());
 
@@ -65,7 +71,11 @@ class AcademicProgramController extends Controller
      */
     public function edit(Academic_program $program)
     {
-        return view('admin.programs.edit', compact('program'));
+        $status = [
+            '1' => 'Activo',
+            '0' => 'Inactivo',
+        ];
+        return view('admin.programs.edit', compact('program','status'));
     }
 
     /**

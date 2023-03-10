@@ -3,6 +3,8 @@
 @section('title', 'Aspirantes San Mateo')
 
 @section('content_header')
+    <a class="btn btn-success float-right" href="{{route('admin.programs.create')}}">Agregar Programa Académico</a>
+
     <h1>Lista de Programas Académicos</h1>
 @stop
 
@@ -15,9 +17,6 @@
 @endif
 <div class="card">
     <div class="card-body">
-        <div class="card-header">
-            <a class="btn btn-success" href="{{route('admin.programs.create')}}">Agregar Programa Académico</a>
-        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

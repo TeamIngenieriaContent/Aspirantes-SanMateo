@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Academic_program extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','slug','url_landing'];
+    protected $fillable = ['name','slug','url_landing','status'];
     protected $guarded = [];
 
     /* public function getRouteKeyName()
