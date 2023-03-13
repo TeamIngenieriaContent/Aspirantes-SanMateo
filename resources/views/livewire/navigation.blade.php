@@ -97,9 +97,9 @@
                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                     {{ __('Profile') }}
                 </x-jet-dropdown-link>
-                <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                {{-- <x-jet-dropdown-link href="{{ route('admin.home') }}">
                     {{ __('Dashboard') }}
-                </x-jet-dropdown-link>
+                </x-jet-dropdown-link> --}}
                 <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf
                 <x-jet-dropdown-link href="{{ route('logout') }}"
